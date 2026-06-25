@@ -1,0 +1,16 @@
+# Mengabaikan folder Virtual Environment
+venv/
+ENV/
+env/
+
+# Mengabaikan folder cache compile Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Mengabaikan folder cache Pytest
+.pytest_cache/
+
+# Mengabaikan berkas laporan pengujian lokalan (opsional)
+report.html
