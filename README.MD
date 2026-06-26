@@ -1,39 +1,118 @@
-# 🚀 QA Automation Tracker - Python & Playwright (POM)
+# 🚀 QA Automation Python - Playwright & Pytest
 
-Repositori ini digunakan sebagai jurnal belajar mandiri dan pelacak kemajuan (*progress tracker*) transisi dari QA Manual ke QA Automation menggunakan Python dan Playwright Framework dengan pendekatan *Page Object Model* (POM).
-
----
-
-## 🏁 Checklist Pencapaian (Progress Tracker)
-
-### 📚 MINGGU 1: Pondasi Pemrograman Python & Mindset Automation
-- [x] Teori dasar Python (Variabel, Tipe Data, Logika Kondisi, Looping, & Function)
-- [x] Praktik membuat logika sederhana Python
-- [x] **Status:** `SELESAI` (Bawaan dasar kuliah & penyegaran internal)
-
-### 🏗️ MINGGU 2: Object-Oriented Programming (OOP) & Arsitektur Folder
-- [x] Pemahaman dasar *Class*, *Object*, dan *Methods* untuk kebutuhan POM
-- [x] Implementasi struktur direktori bersih (`pages/` dan `tests/`)
-- [x] **Status:** `SELESAI` (Struktur folder proyek sudah tertata rapi)
-
-### 🎭 MINGGU 3: Playwright Core, Skenario Negatif & Reporting
-- [x] Menghubungkan berkas tes lintas folder dengan struktur `from pages.login_page import LoginPage`
-- [x] Membuat *Positive Case* & *Negative Case* di web SauceDemo
-- [x] Integrasi laporan otomatis berformat `report.html` menggunakan `pytest-html`
-- [x] Mengatasi kendala environment path (`$env:PYTHONPATH="."`) di terminal PowerShell
-- [x] **Optimasi Conftest:** Konfigurasi *Headless Mode* (`headless=True`) di `conftest.py`
-- [x] **Assert Lanjutan:** Validasi presisi teks pesan eror yang muncul di UI SauceDemo
-- [x] **Status:** `SELESAI` 🎉
-
-### 🚀 MINGGU 4: Advance UI Automation & Pengenalan CI/CD Pipeline
-- [x] **Dynamic Element & Waiting Mechanism:** Menangani komponen web yang lambat memuat (*loading*)
-- [x] **Data-Driven Testing (DDT):** Menguji banyak skenario negatif sekaligus menggunakan `@pytest.mark.parametrize`
-- [x] **Git Integration:** Inisialisasi `git init`, konfigurasi `.gitignore` untuk menyaring folder `venv/`, dan melakukan *commit* pertama
-- [x] **Status:**  `SELESAI` 🎉
+This repository serves as a comprehensive end-to-end **Automation Testing** portfolio built with **Python**, leveraging the modern **Playwright** framework and the **Pytest** test runner. The project encompasses both Web User Interface (UI) testing and Integration Data (API) testing.
 
 ---
 
-## 📊 Hasil Eksekusi Terakhir (Benchmark)
-* **Mode Running:** Headless Mode (True)
-* **Status Pengujian:** 7 Passed ✅
-* **Catatan Waktu Eksekusi:** 27.04s ⏱️
+## 🛠️ Tech Stack & Libraries
+* **Language:** Python 3.x
+* **UI & API Framework:** Playwright Python
+* **Test Runner:** Pytest
+* **Design Pattern:** Page Object Model (POM)
+* **Testing Methodology:** Data-Driven Testing (DDT) & API Integration
+
+---
+
+## 🏗️ Project Structure
+```text
+QA-AUTOMATION-PYTHON/
+│
+├── pages/                  # Page Object Model (POM) UI Layers
+│   └── login_page.py
+│
+├── tests/                  # Test Scenario Scripts
+│   ├── test_buka_web.py    (UI - Basic Playwright Execution)
+│   ├── test_saucedemo_pom.py (UI - Robust POM & DDT)
+│   └── test_api_jsonplaceholder.py (API - GET & POST Assertions) 🌟 New!
+│
+├── assets/                 # Documentation Assets & Report Styling
+├── .gitignore              # Protects venv, cache, and system files
+├── pytest.ini              # Global Pytest configurations
+└── README.md               # Project Documentation
+```
+
+---
+
+## 🏁 Milestone Checklist (Progress Tracker)
+
+### 📚 WEEK 1: Python Programming Foundations & Automation Mindset
+
+[x] Core Python theories (Variables, Data Types, Conditional Logic, Loops, & Functions).
+
+[x] Hands-on script exercises for core logical structures.
+
+[x] Status: COMPLETED (Refresher on college foundations).
+
+### 🏗️ WEEK 2: Object-Oriented Programming (OOP) & Clean Folder Architecture
+[x] Solid understanding of Classes, Objects, and Methods tailored for POM design patterns.
+
+[x] Execution of clean directory separation strategy (pages/ and tests/).
+
+[x] Status: COMPLETED (Clean structural layout defined).
+
+### 🎭 WEEK 3: Playwright Core Engine, Negative Scenarios & Automated Reporting
+[x] Cross-folder imports using clean modular structures (from pages.login_page import LoginPage).
+
+[x] Built robust Positive Cases & Negative Cases on the SauceDemo web platform.
+
+[x] Automated report pipeline generation mapping out to an interactive report.html file via pytest-html.
+
+[x] Resolved environment mapping bugs via custom shell paths ($env:PYTHONPATH=".").
+
+[x] Conftest Optimization: Configured isolated browser configurations (headless=True) via conftest.py.
+
+[x] Advanced Assertions: Targeted specific UI error string payloads for absolute assertions.
+
+[x] Status: COMPLETED 🎉
+
+### 🚀 WEEK 4: Advanced UI Components & Git Integration Setup
+[x] Dynamic Element & Waiting Mechanism: Implemented auto-waiting strategies to combat page load latencies.
+
+[x] Data-Driven Testing (DDT): Batched multiple user profiles into a singular dynamic test pipeline via @pytest.mark.parametrize.
+
+[x] Git Ecosystem Integration: Safe initializing of git init, .gitignore environment tracking for venv/ filtering, and launching the initial push to GitHub.
+
+[x] Status: COMPLETED 🎉
+
+### 📊 WEEK 5: API Integration Automation Mastery
+[x] HTTP GET Automation: Fetches mock network objects from JSONPlaceholder, asserts status 200 OK, and parses target properties.
+
+[x] HTTP POST Data Creation: Dispatches structured JSON body payloads, asserts data creation state (201 Created), and validates autogenerated server keys.
+
+[x] Status: COMPLETED 🌟 (9 total integrated suite execution verified)
+---
+## 🚀 Execution & Running Guide
+
+1. Installation
+
+Ensure your virtual environment (venv) is active, then install the modern dependencies:
+```PowerShell
+pip install pytest-playwright requests pytest-html
+playwright install
+```
+
+2. Run Commands
+
+Run Entire Test Suite (UI + API together):
+```PowerShell
+pytest -v -s
+```
+
+Run Only API Integration Tests:
+```PowerShell
+pytest -v -s tests/test_api_jsonplaceholder.py
+```
+
+Run Only Web UI Scenarios:
+```PowerShell
+pytest -v -s tests/test_saucedemo_pom.py
+```
+
+---
+
+## 📊 Latest Execution Benchmark
+Running Mode: Headless Mode (headless=True)
+
+Test Suites Verification: 9 Passed ✅ (7 UI Tests + 2 API Tests)
+
+Execution Duration: 18.47s ⏱️
