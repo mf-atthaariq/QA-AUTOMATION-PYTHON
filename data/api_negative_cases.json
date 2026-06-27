@@ -1,0 +1,26 @@
+[
+  {
+    "scenario": "Token Blank / Kosong",
+    "headers": { "Authorization": "Bearer " },
+    "payload": { "title": "Test Token Blank", "body": "Testing", "userId": 1 },
+    "expected_status": 201
+  },
+  {
+    "scenario": "Token Missing / Unchecked",
+    "headers": {},
+    "payload": { "title": "Test Token Missing", "body": "Testing", "userId": 1 },
+    "expected_status": 201
+  },
+  {
+    "scenario": "appId Blank / Kosong",
+    "headers": { "Authorization": "Bearer TOKEN_VALID" },
+    "payload": { "title": "Test appId Blank", "body": "Testing", "userId": 1, "appId": "" },
+    "expected_status": 201
+  },
+  {
+    "scenario": "appId Typo / Invalid",
+    "headers": { "Authorization": "Bearer TOKEN_VALID" },
+    "payload": { "title": "Test appId Typo", "body": "Testing", "userId": 1, "appId": "APP_TYPO_789" },
+    "expected_status": 201
+  }
+]
