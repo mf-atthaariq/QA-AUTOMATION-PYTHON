@@ -22,21 +22,21 @@ jobs:
         with:
           python-version: '3.11'
 
-      # 3. Install seluruh dependensi library yang dibutuhkan framework lo
+      # 3. 🛠️ UPDATE: Install Core Dependencies + Tambah Ekstensi Parallel Workers
       - name: 📦 Install Core Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pytest-html playwright requests jsonschema
+          pip install pytest pytest-html playwright requests jsonschema pytest-xdist
 
       # 4. Download & Install biner browser headless bawaan Playwright di server cloud
       - name: 🌐 Install Playwright Web Browsers
         run: playwright install --with-deps
 
-      # 5. Eksekusi pengujian gabungan (UI + API) menggunakan mapping path lokal (.)
+      # 5. 🛠️ UPDATE: Eksekusi Test Suite Secara Multi-Threading Lintas Core CPU (-n auto)
       - name: 🚀 Execute Complete Test Suite
         env:
           PYTHONPATH: "."
-        run: pytest -v -s --html=report.html --self-contained-html
+        run: pytest -v -s -n auto --html=report.html --self-contained-html
 
       # 6. Amankan file report.html agar tidak hilang saat server virtual dimatikan
       - name: 💾 Archive Automated Test Report
