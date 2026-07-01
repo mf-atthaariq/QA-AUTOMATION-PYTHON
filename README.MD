@@ -17,18 +17,28 @@ This repository serves as a comprehensive end-to-end **Automation Testing** port
 ```text
 QA-AUTOMATION-PYTHON/
 │
+├── .github/workflows/      # 🌟 New: Infrastruktur Cloud CI/CD
+│   └── main.yml            # Pipeline GitHub Actions (Ubuntu-latest)
+│
+├── data/                   # 🌟 New: Pusat Data Uji Eksternal (SoC Pattern)
+│   └── api_negative_cases.json
+│
 ├── pages/                  # Page Object Model (POM) UI Layers
 │   └── login_page.py
 │
-├── tests/                  # Test Scenario Scripts
-│   ├── test_buka_web.py    (UI - Basic Playwright Execution)
-│   ├── test_saucedemo_pom.py (UI - Robust POM & DDT)
-│   └── test_api_jsonplaceholder.py (API - GET & POST Assertions) 🌟 New!
+├── schemas/                # 🌟 New: Kontrak JSON Schema (Gatekeeper Pattern)
+│   └── post_schema.json
 │
-├── assets/                 # Documentation Assets & Report Styling
-├── .gitignore              # Protects venv, cache, and system files
-├── pytest.ini              # Global Pytest configurations
-└── README.md               # Project Documentation
+├── utils/                  # Modul Konstanta & Helper Terpusat
+│   └── api_routes.py       # Route Container (Pola C# XxxAPI.cs)
+│
+├── tests/                  # Skrip Skenario Pengujian (UI + API)
+│   ├── test_buka_web.py
+│   ├── test_saucedemo_pom.py
+│   └── test_api_jsonplaceholder.py
+│
+├── pytest.ini              # Konfigurasi global Pytest
+└── README.md               # Dokumentasi Proyek
 ```
 
 ---
@@ -70,46 +80,56 @@ QA-AUTOMATION-PYTHON/
 - [x] HTTP DELETE Data Destruction: Successfully fired mock cleanup signals and mapped deletion server feedback.
 [x] Status: COMPLETED 🌟 (11 Integrated Test Suites Achieved)
 
-### 🔑 WEEK 6: Advanced Enterprise Automation Pattern
-- [x] **Token Authentication Handling:** Mensimulasikan arsitektur pengamanan Bearer Tokens dinamis pada HTTP authorization headers.
-- [x] **Advanced API Chaining:** Membangun integrasi inter-dependent data lifecycle (POST dynamic payload ➔ Extract response ID ➔ PUT mutation sync via ID estafet ➔ Clean up / Delete target index).
-- [x] **Gatekeeper Pattern (JSON Schema Contract Validation):** Memasukkan disiplin strongly-typed dari C# (.NET/xUnit) ke Python menggunakan `jsonschema` untuk mengunci kontrak response struktur data sebelum fungsionalitas dijalankan.
-- [x] **External Data-Driven Testing (SoC):** Menerapkan prinsip *Separation of Concerns* dengan memisahkan total data pengujian negatif (Token Blank, Missing Header, appId Typo) ke berkas eksternal `data/api_negative_cases.json`.
-[x] Status: COMPLETED 🌟 (100% Passed dengan Penyesuaian Mock API Environment)
+### 🔑 WEEK 6: Advanced Enterprise Automation Patterns
+- [x] **Route Container Pattern:** Centralized all endpoint routing schemas inside `utils/api_routes.py` to replicate C# static encapsulation architecture (`XxxAPI.cs`), eliminating hardcoded URLs across modules.
+- [x] **Gatekeeper Contract Validation (TC1):** Enforced structural JSON Schema validation using the `jsonschema` library at the entry point of test runs to instantly catch API contract breaches or data mutation anomalies from the backend.
+- [x] **Advanced Data Chaining (TC2):** Developed multi-state state integration flows via independent HTTP methods (POST dynamic payload ➔ Runtime ID extraction ➔ PUT mutation sync using inherited parameters ➔ DELETE database record cleanup).
+- [x] **Separation of Concerns (SoC) for Security Gate:** Decoupled functional logic from datasets by isolating negative security vectors (Blank Token, Missing Auth Header, Invalid/Typo `appId`) into an external configuration asset file `data/api_negative_cases.json`.
+[x] **Status:** `COMPLETED` ✅
 
+### 🤖 WEEK 7: Cloud CI/CD DevOps Infrastructure (GitHub Actions)
+- [x] **Infrastructure as Code (IaC):** Engineered an automated, event-driven continuous integration delivery loop via `.github/workflows/main.yml`.
+- [x] **Multi-Platform Cloud Readiness:** Orchestrated headless execution for the complete 14-item test grid inside an ephemeral cloud virtual container running Linux (`ubuntu-latest`).
+- [x] **Artifact Deployment & Retention Policy:** Automated the compilation and uploading of the interactive `report.html` asset bundle directly to cloud environments with an automated `retention-days: 7` storage policy.
+[x] **Status:** `COMPLETED` ✅
+
+### 🏆 WEEK 8: Framework Optimization, Advanced Logging, & Behavioral-Driven Development (BDD)
+- [x] **Parallel Execution Scaling (`pytest-xdist`):** Implemented multi-threaded clustering worker allocations (`-n auto` / `-n 8`) to distribute suite execution across multiple CPU cores simultaneously.
+- [x] **Enterprise Logging Infrastructure:** Replaced native print statements with the Python `logging` utility to stream production-grade telemetry logs (`INFO`, `WARNING`, `ERROR`) bundled with transactional timestamps directly into the integrated HTML test reports.
+- [] **Behavior-Driven Development (BDD Pattern):** Integrated `pytest-bdd` / `behave` frameworks to abstract core script functions into business-readable Gherkin syntax specs (`Given-When-Then`) for non-technical stakeholders.
+[ ] **Status:** `IN PROGRESS` 🚀
 ---
 ## 🚀 Execution & Running Guide
 
 1. Installation
 
 Ensure your virtual environment (venv) is active, then install the modern dependencies:
+## 🚀 Execution & Running Guide
+
+1. Installation
+Ensure your virtual environment (venv) is active, then install the modern dependencies:
 ```PowerShell
-pip install pytest-playwright requests pytest-html
+pip install pytest-playwright requests pytest-html jsonschema pytest-xdist
 playwright install
 ```
 
 2. Run Commands
 
-Run Entire Test Suite (UI + API together):
+- Sequential run:
 ```PowerShell
 pytest -v -s
 ```
 
-Run Only API Integration Tests:
+- Parallel run:
 ```PowerShell
-pytest -v -s tests/test_api_jsonplaceholder.py
-```
-
-Run Only Web UI Scenarios:
-```PowerShell
-pytest -v -s tests/test_saucedemo_pom.py
+pytest -v -s -n auto
 ```
 
 ---
 
 ## 📊 Latest Execution Benchmark
-Running Mode: Headless Mode (headless=True)
 
-Test Suites Verification: 10 Passed ✅ (6 UI Tests + 4 API Advanced Enterprise Tests)
-
-Execution Duration: 25.56s ⏱️
+| Environment / Runner | Total Test Items | Execution Mode | Duration | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **Local Machine (Win32)** | 14 Items Collected | Parallel Workers (`-n 8`) | **11.90s** 🔥 | **PASSED** 🟢 |
+| **GitHub Actions Cloud** | 14 Items Collected | Parallel Workers (`-n auto`) | **1m 20s** 🚀 | **PASSED** 🟢 |
