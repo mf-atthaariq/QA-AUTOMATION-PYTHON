@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Tarik kode terbaru dari repository GitHub lo
+      # 1. Tarik kode terbaru dari repository GitHub
       - name: 📁 Checkout Repository Code
         uses: actions/checkout@v4
 
@@ -22,17 +22,17 @@ jobs:
         with:
           python-version: '3.11'
 
-      # 3. 🛠️ UPDATE: Install Core Dependencies + Tambah Ekstensi Parallel Workers
+      # 3. 🛠️ UPDATE: Install Core Dependencies + Ekstensi Parallel + ENGINE BDD
       - name: 📦 Install Core Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pytest-html playwright requests jsonschema pytest-xdist
+          pip install pytest pytest-html playwright requests jsonschema pytest-xdist pytest-bdd
 
       # 4. Download & Install biner browser headless bawaan Playwright di server cloud
       - name: 🌐 Install Playwright Web Browsers
         run: playwright install --with-deps
 
-      # 5. 🛠️ UPDATE: Eksekusi Test Suite Secara Multi-Threading Lintas Core CPU (-n auto)
+      # 5. Eksekusi Test Suite Secara Multi-Threading Lintas Core CPU (-n auto)
       - name: 🚀 Execute Complete Test Suite
         env:
           PYTHONPATH: "."
