@@ -1,103 +1,81 @@
-# 🚀 QA Automation Python - Playwright & Pytest
+# 🚀 QA Automation Python - Playwright & Pytest (Enterprise Full-Stack Suite)
 
-This repository serves as a comprehensive end-to-end **Automation Testing** portfolio built with **Python**, leveraging the modern **Playwright** framework and the **Pytest** test runner. The project encompasses both Web User Interface (UI) testing and Integration Data (API) testing.
-
----
-
-## 🛠️ Tech Stack & Libraries
-* **Language:** Python 3.x
-* **UI & API Framework:** Playwright Python
-* **Test Runner:** Pytest
-* **Design Pattern:** Page Object Model (POM)
-* **Testing Methodology:** Data-Driven Testing (DDT) & API Integration
+This repository serves as a comprehensive, production-grade **Full-Stack Automation Testing Portfolio** built with **Python**, leveraging the modern **Playwright** framework and the asynchronous-capable **Pytest** engine. Heavily influenced by disciplined C# xUnit enterprise design patterns, this architecture bridges the gap between high-performance technical engineering and human-readable business logic.
 
 ---
 
-## 🏗️ Project Structure
+## 🛠️ Tech Stack & Advanced Ecosystem
+* **Language:** Python 3.x (Thread-Safe Compilation)
+* **Web UI Core:** Playwright Python (Sync Mode with Auto-Wait Guards)
+* **API Client Engine:** Requests Python
+* **Test Runner:** Pytest Ecosystem
+* **BDD Engine:** Pytest-BDD (Gherkin Syntax Parsing)
+* **Concurrency Scaling:** Pytest-Xdist (Multi-Threading Core Workers)
+* **Reporting & Telemetry:** Pytest-HTML (Self-Contained Artifacts with Native Logging)
+* **Design Pattern:** Page Object Model (POM) & External Data-Driven Testing (DDT)
+
+---
+
+## 🏗️ Project Directory Architecture
 ```text
 QA-AUTOMATION-PYTHON/
 │
-├── .github/workflows/      # 🌟 New: Infrastruktur Cloud CI/CD
-│   └── main.yml            # Pipeline GitHub Actions (Ubuntu-latest)
+├── .github/workflows/              # Cloud DevOps Infrastructure
+│   └── main.yml                    # CI/CD Cloud Pipeline Workflow (Headless Ubuntu Execution)
 │
-├── data/                   # 🌟 New: Pusat Data Uji Eksternal (SoC Pattern)
-│   └── api_negative_cases.json
+├── data/                           # Data Center & Dataset Providers (SoC Pattern)
+│   └── api_negative_cases.json     # Parameterized Security & Auth Intrusion Dataset
 │
-├── pages/                  # Page Object Model (POM) UI Layers
-│   └── login_page.py
+├── features/                       # Behavioral Business Requirements Layer
+│   └── user_login.feature          # Human-Readable Gherkin Syntax Specifications
 │
-├── schemas/                # 🌟 New: Kontrak JSON Schema (Gatekeeper Pattern)
-│   └── post_schema.json
+├── pages/                          # Page Object Model (POM) Web Interactive Layers
+│   └── login_page.py               # Decoupled Element Locators & Action Modifiers
 │
-├── utils/                  # Modul Konstanta & Helper Terpusat
-│   └── api_routes.py       # Route Container (Pola C# XxxAPI.cs)
+├── schemas/                        # Contract Compliance Gateway (Gatekeeper Pattern)
+│   └── post_schema.json            # Sealed JSON Schema Contract Validation Specs
 │
-├── tests/                  # Skrip Skenario Pengujian (UI + API)
-│   ├── test_buka_web.py
-│   ├── test_saucedemo_pom.py
-│   └── test_api_jsonplaceholder.py
+├── utils/                          # Shared Corporate Constants & Constants Center
+│   └── api_routes.py               # Route Utility Container (Mimicking C# Static Routing)
 │
-├── pytest.ini              # Konfigurasi global Pytest
-└── README.md               # Dokumentasi Proyek
+├── tests/                          # Automated Test Execution Modules
+│   ├── step_defs/
+│   │   └── test_login_bdd.py       # BDD Gherkin Feature-to-Code Mapping Engine
+│   ├── test_api_jsonplaceholder.py # Advanced API Lifecycle Integration Suite
+│   ├── test_saucedemo_pom.py       # Robust Web UI POM Regression Suite
+│   └── test_buka_web.py            # Baseline Linear Web UI Functional Flow
+│
+├── pytest.ini                      # Global Test Config, Custom Markers Registration & Log Formatters
+└── README.md                       # Project Documentation
 ```
 
 ---
 
-## 🏁 Milestone Checklist (Progress Tracker)
+### WEEK 1 & 2: Python Programming Foundations & OOP Architecture
+- Theories: Control flows, list/dictionary JSON-like mapping structures, and core Object-Oriented Programming (OOP) pillars (Classes, Methods, State Inheritance).
 
-### 📚 WEEK 1: Python Programming Foundations & Automation Mindset
-- [x] Core Python theories (Variables, Data Types, Conditional Logic, Loops, & Functions).
-- [x] Hands-on script exercises for core logical structures.
+### WEEK 3 & 4: Robust Web UI POM Framework & Git Control
+- Theories: Playwright locator strategies, text-based selectors, conftest.py browser life-cycle orchestration, local version control management, and pytest-html integration.
 
-[x] Status: COMPLETED (Refresher on college foundations).
+### WEEK 5: Full API Lifecycle Automation & Async Decoupling
+- Theories: Code-based backend validation, CRUD (POST, GET, PUT, DELETE) transaction handling, and response mapping.
 
-### 🏗️ WEEK 2: Object-Oriented Programming (OOP) & Clean Folder Architecture
-- [x] Solid understanding of Classes, Objects, and Methods tailored for POM design patterns.
-- [x] Execution of clean directory separation strategy (pages/ and tests/).
+### WEEK 6: Advanced Enterprise Automation Patterns (Separation of Concerns)
+- Theories: Architectural migration inspired by C# enterprise systems. Created a unified Route Container to centralize paths. Implemented a Gatekeeper Contract Validation pattern via jsonschema to validate payload data types instantly, replacing manual foreach-loops. Decoupled test datasets into external data files (api_negative_cases.json).
 
-[x] Status: COMPLETED (Clean structural layout defined).
+### WEEK 7: Cloud DevSecOps Pipelines (DevOps Infrastructure)
+- Theories: Built a fully automated cloud pipeline using GitHub Actions (main.yml). Orchestrated headless script execution inside a virtual Linux server (ubuntu-latest). Implemented automatic zip compilation for test report artifacts with a retention-days: 7 auto-purge storage compliance.
 
-### 🎭 WEEK 3: Playwright Core Engine, Negative Scenarios & Automated Reporting
-- [x] Cross-folder imports using clean modular structures (from pages.login_page import LoginPage).
-- [x] Built robust Positive Cases & Negative Cases on the SauceDemo web platform.
-- [x] Automated report pipeline generation mapping out to an interactive report.html file via pytest-html.
-- [x] Resolved environment mapping bugs via custom shell paths ($env:PYTHONPATH=".").
-- [x] Conftest Optimization: Configured isolated browser configurations (headless=True) via conftest.py.
-- [x] Advanced Assertions: Targeted specific UI error string payloads for absolute assertions.
+### WEEK 8: Grand Finale - Parallel Concurrency Scaling, Telemetry Logging, and BDD Integration
+- Theories: Configured multi-threaded parallel execution via pytest-xdist to reduce pipeline durations. Established an automated telemetry infrastructure using the native Python logging module to stamp structured operational records (INFO, WARNING, ERROR) alongside strict transactional execution timestamps. Integrated Behavior-Driven Development (BDD) paradigms via pytest-bdd using Gherkin syntax to abstract code structures into business-readable features.
 
-[x] Status: COMPLETED 🎉
+---
+## 📊 Latest Execution Benchmark
 
-### 🚀 WEEK 4: Advanced UI Components & Git Integration Setup
-- [x] Dynamic Element & Waiting Mechanism: Implemented auto-waiting strategies to combat page load latencies.
-- [x] Data-Driven Testing (DDT): Batched multiple user profiles into a singular dynamic test pipeline via @pytest.mark.parametrize.
-- [x] Git Ecosystem Integration: Safe initializing of git init, .gitignore environment tracking for venv/ filtering, and launching the initial push to GitHub.
-[x] Status: COMPLETED 🎉
-
-### 📊 WEEK 5: API Integration Automation Mastery
-- [x] HTTP GET Automation: Fetches mock network objects from JSONPlaceholder, asserts status 200 OK, and parses target properties.
-- [x] HTTP POST Data Creation: Dispatches structured JSON body payloads, asserts data creation state (201 Created), and validates autogenerated server keys.
-- [x] HTTP PUT Data Modification: Successfully targeted specific indices, dispatched mutations, and validated payload sync states (200 OK).
-- [x] HTTP DELETE Data Destruction: Successfully fired mock cleanup signals and mapped deletion server feedback.
-[x] Status: COMPLETED 🌟 (11 Integrated Test Suites Achieved)
-
-### 🔑 WEEK 6: Advanced Enterprise Automation Patterns
-- [x] **Route Container Pattern:** Centralized all endpoint routing schemas inside `utils/api_routes.py` to replicate C# static encapsulation architecture (`XxxAPI.cs`), eliminating hardcoded URLs across modules.
-- [x] **Gatekeeper Contract Validation (TC1):** Enforced structural JSON Schema validation using the `jsonschema` library at the entry point of test runs to instantly catch API contract breaches or data mutation anomalies from the backend.
-- [x] **Advanced Data Chaining (TC2):** Developed multi-state state integration flows via independent HTTP methods (POST dynamic payload ➔ Runtime ID extraction ➔ PUT mutation sync using inherited parameters ➔ DELETE database record cleanup).
-- [x] **Separation of Concerns (SoC) for Security Gate:** Decoupled functional logic from datasets by isolating negative security vectors (Blank Token, Missing Auth Header, Invalid/Typo `appId`) into an external configuration asset file `data/api_negative_cases.json`.
-[x] **Status:** `COMPLETED` ✅
-
-### 🤖 WEEK 7: Cloud CI/CD DevOps Infrastructure (GitHub Actions)
-- [x] **Infrastructure as Code (IaC):** Engineered an automated, event-driven continuous integration delivery loop via `.github/workflows/main.yml`.
-- [x] **Multi-Platform Cloud Readiness:** Orchestrated headless execution for the complete 14-item test grid inside an ephemeral cloud virtual container running Linux (`ubuntu-latest`).
-- [x] **Artifact Deployment & Retention Policy:** Automated the compilation and uploading of the interactive `report.html` asset bundle directly to cloud environments with an automated `retention-days: 7` storage policy.
-[x] **Status:** `COMPLETED` ✅
-
-### 🏆 WEEK 8: Framework Optimization, Advanced Logging, & Behavioral-Driven Development (BDD)
-- [x] **Parallel Execution Scaling (`pytest-xdist`):** Implemented multi-threaded clustering worker allocations (`-n auto` / `-n 8`) to distribute suite execution across multiple CPU cores simultaneously.
-- [x] **Enterprise Logging Infrastructure:** Replaced native print statements with the Python `logging` utility to stream production-grade telemetry logs (`INFO`, `WARNING`, `ERROR`) bundled with transactional timestamps directly into the integrated HTML test reports.
-- [] **Behavior-Driven Development (BDD Pattern):** Integrated `pytest-bdd` / `behave` frameworks to abstract core script functions into business-readable Gherkin syntax specs (`Given-When-Then`) for non-technical stakeholders.
-[ ] **Status:** `IN PROGRESS` 🚀
+| Environment / Runner | Total Test Items | Execution Mode | Duration | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **Local Machine (Win64)** | 15 Items Collected | Parallel Workers (`-n 8`) | **7.92s** 🔥 | **PASSED** 🟢 |
+| **GitHub Actions Cloud** | 14 Items Collected | Parallel Workers (`-n auto`) | **1m 20s** 🚀 | **PASSED** 🟢 |
 ---
 ## 🚀 Execution & Running Guide
 
@@ -109,8 +87,8 @@ Ensure your virtual environment (venv) is active, then install the modern depend
 1. Installation
 Ensure your virtual environment (venv) is active, then install the modern dependencies:
 ```PowerShell
-pip install pytest-playwright requests pytest-html jsonschema pytest-xdist
-playwright install
+pip install pytest playwright requests pytest-html jsonschema pytest-xdist pytest-bdd
+playwright install --with-deps
 ```
 
 2. Run Commands
@@ -124,12 +102,4 @@ pytest -v -s
 ```PowerShell
 pytest -v -s -n auto
 ```
-
 ---
-
-## 📊 Latest Execution Benchmark
-
-| Environment / Runner | Total Test Items | Execution Mode | Duration | Status |
-| :--- | :--- | :--- | :--- | :--- |
-| **Local Machine (Win32)** | 14 Items Collected | Parallel Workers (`-n 8`) | **11.90s** 🔥 | **PASSED** 🟢 |
-| **GitHub Actions Cloud** | 14 Items Collected | Parallel Workers (`-n auto`) | **1m 20s** 🚀 | **PASSED** 🟢 |
